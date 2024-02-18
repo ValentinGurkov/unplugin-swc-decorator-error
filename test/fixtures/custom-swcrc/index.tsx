@@ -1,4 +1,9 @@
+
 import { IsDefined } from "class-validator";
 
-@IsDefined()
+class User {
+  @IsDefined()
+  name!: string;
+}
+
 export const App = () => <div>hi</div>

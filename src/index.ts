@@ -1,4 +1,5 @@
 import path from 'path'
+import { readFileSync } from 'node:fs'
 import { createFilter } from '@rollup/pluginutils'
 import { transform } from '@swc/core'
 import { defu } from 'defu'
@@ -90,8 +91,27 @@ export default createUnplugin<Options | undefined>(
           filename: id,
           sourceMaps: true,
           ...options,
-          jsc, // comment this out
+          jsc,
         })
+
+        // let result
+        // if (tsconfigFile === false) { 
+        //   const newJsc: any = JSON.parse(readFileSync(path.resolve('./.swcrc')) as any).jsc
+        //   result = await transform(code, {
+        //     filename: id,
+        //     sourceMaps: true,
+        //     ...options,
+        //     jsc: newJsc,
+        //   })
+        // } else {
+        //   result = await transform(code, {
+        //     filename: id,
+        //     sourceMaps: true,
+        //     ...options,
+        //     jsc,
+        //   })
+        // }
+
         return {
           code: result.code,
           map: result.map && JSON.parse(result.map),

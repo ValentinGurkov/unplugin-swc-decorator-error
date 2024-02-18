@@ -1,6 +1,7 @@
 import path from 'path'
 import { rollup } from 'rollup'
 import { expect, test } from 'vitest'
+
 import swc from '../dist'
 
 const fixture = (...args: string[]) => path.join(__dirname, 'fixtures', ...args)
