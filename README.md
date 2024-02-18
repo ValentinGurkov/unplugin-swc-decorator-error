@@ -1,0 +1,1 @@
+Demonstrates lack of decorator support when using `.swcrc` file instead of `tsconfig.json`.
